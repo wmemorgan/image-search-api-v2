@@ -1,0 +1,56 @@
+/* Montserrat & Lato */
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat:400,500,600,700');
+
+body  {
+  font-family: Lato, Helvetica, Sans-Serif;
+}
+
+
+
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner {
+  width: 100%;
+  /* margin: 20px auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-title {
+  font-family: Montserrat, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-size: 2rem;
+  
+}
+
+.img-wrapper {
+  width: 50%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta ul {
+  margin: 0 auto;
+}
