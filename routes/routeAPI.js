@@ -1,5 +1,5 @@
 const { postgres } = require('../db')
-const { schema, insert, retrieve, retrieveAll, update, deleteId } = require('../models/models')
+const { insert, retrieve, retrieveAll, update, deleteId } = require('../models/models')
 
 // Google Search API
 const { imageSearch } = require('../controllers/searchAPI')
