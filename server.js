@@ -14,10 +14,15 @@ const apikey = process.env.APIKEY
 app.use(serve('./public'));
 app.use(serve('./img'));
 
-router.get('/', ctx => ctx.body = 'Welcome to Imagesearch API')
+router
+  .get('/', ctx => ctx.body = 'Welcome to Imagesearch API')
+  .post('/api/search/:search*', ctx => {
+    //console.log(`receiving input request: ${JSON.stringify(ctx.request)}`)
+    console.log(`receiving input query: ${JSON.stringify(ctx.query)}`)
+    console.log(`receiving input params: ${JSON.stringify(ctx.params)}`)
+  })
   //404 Error Handling
   .get('/*', ctx => {
-    
     if (ctx.status === 404) {
       ctx.body = fs.readFileSync('./public/404.html', "utf8");
     }
