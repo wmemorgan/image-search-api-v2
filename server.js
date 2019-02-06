@@ -52,7 +52,8 @@ router
   .post('/api/search/:search*', async ctx => {
     console.log(`receiving input query: ${JSON.stringify(ctx.query)}`)
     const { search, offset } = ctx.query
-    
+    //const id = await insert(postgres(ctx), search, offset)
+    ctx.status = 200
     ctx.body = await imageSearch(search, offset).catch(console.error)
   })
   //404 Error Handling
