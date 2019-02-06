@@ -11,7 +11,7 @@ const port = process.env.PORT
 
 // Database Connection
 const { postgresMiddleware, postgres } = require('./db')
-const { schema, insert, retrieve, retrieveAll, update } = require('./models/models')
+const { schema, insert, retrieve, retrieveAll, update, deleteId } = require('./models/models')
 app.use(postgresMiddleware(schema))
 
 // Google Search API
@@ -75,6 +75,14 @@ router
     const data = await imageSearch(search, offset).catch(console.error)
     ctx.status = 200
     ctx.body = data
+  })
+  .delete('/api/search/:id', async ctx => {
+    const { id } = ctx.params
+    console.log(`Delete search record: ${id}`)
+    const searchRecord = await deleteId(postgres(ctx), ctx.params.id)
+    if (searchRecord.length === 0) {
+      ctx.body = 'Delete successful!'
+    }  
   })
   //404 Error Handling
   .get('/*', ctx => {

@@ -48,19 +48,6 @@ async function retrieveAll(db) {
 
 //UPDATE
 async function update(db, id, search, offset) {
-  // db.transaction(trx => {
-  //   trx('searches')
-  //     .where({id})
-  //     .update({
-  //       search: search,
-  //       offset: offset,
-  //       updated_at: new Date()
-  //     })
-  //     .returning('id')
-  //     .then(trx.commit)
-  //     .select()
-  //     .catch(trx.rollback)
-  // })
   console.log(`Update db record: ${id} with search criteria: ${search}`)
   db('searches')
     .where({ id })
@@ -68,7 +55,8 @@ async function update(db, id, search, offset) {
       search: search,
       offset: offset,
       updated_at: new Date()
-    }).then( (response) => {
+    })
+    .then( (response) => {
       console.log(`Record ${id} updated`)
       console.log(response)
       return response
@@ -76,5 +64,15 @@ async function update(db, id, search, offset) {
 }
 
 //DELETE
+async function deleteId(db, id) {
+  db('searches')
+    .where({ id })
+    .del()
+    .then((response) => {
+      console.log(`Record ${id} deleted`)
+      console.log(response)
+      return response
+    })
+}
 
-module.exports = {schema, insert, retrieve, retrieveAll, update}
+module.exports = {schema, insert, retrieve, retrieveAll, update, deleteId}
