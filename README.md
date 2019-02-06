@@ -1,4 +1,4 @@
-# Image Search Abstraction Layer
+# Image Search API
 
 A REST API that processes image searches using the Google custom search engine
 
