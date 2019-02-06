@@ -1,15 +1,19 @@
 
 //SCHEMA
-const schema = () => {
+async function schema (db) {
+  console.log(`Run db schema function`)
   db.schema.hasTable('searches').then( (exists) => {
     if (!exists) {
-      return knex.schema.createTable('searches', (t) => {
+      console.log(`Creating table`)
+      return db.schema.createTable('searches', (t) => {
         t.increments('id').primary()
         t.string('search', 500)
         t.integer('offset', 8)
         t.timestamp('created_at', { useTz: true }).defaultTo(db.fn.now())
         t.timestamp('updated_at', { useTz: true }).defaultTo(db.fn.now())
       })
+    } else {
+      console.log(`Table already exists`)
     }
   })
 }
