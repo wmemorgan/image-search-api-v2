@@ -20,10 +20,17 @@ async function schema (db) {
 
 //INSERT
 async function insert(db, search, offset) {
-  return db.raw(
-    `INSERT INTO searches(search, offset) VALUES($1, $2) RETURNING id, search, created_at`,
-    search, offset
-  )
+  db.transaction(trx => {
+    trx('searches')
+    .insert({
+      search: search,
+      offset: offset,
+      created_at: new Date()
+    })
+    .returning('id')
+    .then(trx.commit)
+    .catch(trx.rollback)
+  })
 }
 
 //RETRIEVE
