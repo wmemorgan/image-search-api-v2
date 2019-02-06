@@ -56,6 +56,12 @@ router
     ctx.status = 200
     ctx.body = await imageSearch(search, offset).catch(console.error)
   })
+  .get('/api/search/history', async ctx => {
+    const data = await retrieveAll(postgres(ctx))
+    console.log(data)
+    ctx.status = 200
+    ctx.body = data
+  })
   //404 Error Handling
   .get('/*', ctx => {
     if (ctx.status === 404) {

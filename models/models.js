@@ -44,9 +44,8 @@ async function retrieve(db, id) {
 
 //RETRIEVEALL
 async function retrieveAll(db) {
-  return db.rows(
-    `SELECT * FROM searches`
-  )
+  console.log(`Retrieve all records`)
+  return db.select().table('searches')
 }
 
 //UPDATE
