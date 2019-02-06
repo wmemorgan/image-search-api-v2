@@ -36,14 +36,6 @@ router
 
 app.use(router.routes())  
 
-//404 Error Handling
-router    
-  .get('/*', ctx => {
-    if (ctx.status === 404) {
-      ctx.body = fs.readFileSync('./public/404.html', "utf8");
-    }
-  })
-
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
 })
