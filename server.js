@@ -63,7 +63,16 @@ router
   })
   .get('/api/search/history', async ctx => {
     const data = await retrieveAll(postgres(ctx))
-
+    ctx.status = 200
+    ctx.body = data
+  })
+  .put('/api/search/:id/:search*', async ctx => {
+    console.log(`receiving input query: ${JSON.stringify(ctx.query)}`)
+    console.log(`receiving input params: ${JSON.stringify(ctx.params)}`)
+    const { id } = ctx.params
+    const { search, offset } = ctx.query
+    await update(postgres(ctx), id, search, offset)
+    const data = await imageSearch(search, offset).catch(console.error)
     ctx.status = 200
     ctx.body = data
   })

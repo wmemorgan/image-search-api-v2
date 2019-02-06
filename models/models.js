@@ -47,11 +47,32 @@ async function retrieveAll(db) {
 }
 
 //UPDATE
-async function update(db, search, offset, id) {
-  return db.raw(
-    `UPDATE users SET search=$1, offset=$2, updated_at=NOW() WHERE id=$3 RETURNING id, name, address`,
-    search, offset, id
-  )
+async function update(db, id, search, offset) {
+  // db.transaction(trx => {
+  //   trx('searches')
+  //     .where({id})
+  //     .update({
+  //       search: search,
+  //       offset: offset,
+  //       updated_at: new Date()
+  //     })
+  //     .returning('id')
+  //     .then(trx.commit)
+  //     .select()
+  //     .catch(trx.rollback)
+  // })
+  console.log(`Update db record: ${id} with search criteria: ${search}`)
+  db('searches')
+    .where({ id })
+    .update({
+      search: search,
+      offset: offset,
+      updated_at: new Date()
+    }).then( (response) => {
+      console.log(`Record ${id} updated`)
+      console.log(response)
+      return response
+    })
 }
 
 //DELETE
