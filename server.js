@@ -8,18 +8,47 @@ const fs = require('fs')
 const app = new Koa()
 const router = new Router()
 const port = process.env.PORT
+
+// Google Search API
+const { google } = require('googleapis')
 const apikey = process.env.APIKEY
+const customsearch = google.customsearch('v1');
 
 // Host static site
 app.use(serve('./public'));
 app.use(serve('./img'));
 
+// Google Search API
+const imageSearch = async (search, offset) => {
+  const results = await customsearch.cse.list({
+    cx: '008245539995824095644:3f27vg6irlc',
+    q: search,
+    auth: apikey,
+    searchType: 'image',
+    start: offset,
+  })
+
+  const searchList = results.data.items
+  const displayItems = searchList.map(item => {
+    let itemDetails = {
+      url: item.link,
+      snippet: item.snippet,
+      thumbnail: item.image.thumbnailLink,
+      context: item.image.contextLink
+    }
+    return itemDetails
+  })
+  console.log(displayItems)
+  return displayItems 
+}
+
 router
   .get('/', ctx => ctx.body = 'Welcome to Imagesearch API')
-  .post('/api/search/:search*', ctx => {
-    //console.log(`receiving input request: ${JSON.stringify(ctx.request)}`)
+  .post('/api/search/:search*', async ctx => {
     console.log(`receiving input query: ${JSON.stringify(ctx.query)}`)
-    console.log(`receiving input params: ${JSON.stringify(ctx.params)}`)
+    const { search, offset } = ctx.query
+
+    ctx.body = await imageSearch(search, offset).catch(console.error)
   })
   //404 Error Handling
   .get('/*', ctx => {
