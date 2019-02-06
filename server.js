@@ -4,12 +4,15 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const serve = require('koa-static')
 const fs = require('fs')
-
+const db = require('./db')
+//const { postgresMiddleware, postgres } = db
 
 const app = new Koa()
 const router = new Router()
 const port = process.env.PORT
 const apikey = process.env.APIKEY
+
+
 
 // Host static site
 app.use(serve('./public'));
@@ -25,6 +28,9 @@ router.get('/', ctx => ctx.body = 'Welcome to Imagesearch API')
   })
 
 app.use(router.routes())  
+// Database Connection
+app.use(db.postgresMiddleware())
+
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
 })
