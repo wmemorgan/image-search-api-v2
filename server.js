@@ -9,6 +9,11 @@ const app = new Koa()
 const router = new Router()
 const port = process.env.PORT
 
+// Database Connection
+const { postgresMiddleware, postgres } = require('./db')
+const { schema, insert, retrieve, retrieveAll, update } = require('./models/models')
+app.use(postgresMiddleware(schema))
+
 // Google Search API
 const { google } = require('googleapis')
 const apikey = process.env.APIKEY
@@ -47,7 +52,7 @@ router
   .post('/api/search/:search*', async ctx => {
     console.log(`receiving input query: ${JSON.stringify(ctx.query)}`)
     const { search, offset } = ctx.query
-
+    
     ctx.body = await imageSearch(search, offset).catch(console.error)
   })
   //404 Error Handling
