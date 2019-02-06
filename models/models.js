@@ -1,0 +1,50 @@
+
+//SCHEMA
+const schema = () => {
+  db.schema.hasTable('searches').then( (exists) => {
+    if (!exists) {
+      return knex.schema.createTable('searches', (t) => {
+        t.increments('id').primary()
+        t.string('search', 500)
+        t.integer('offset', 8)
+        t.timestamp('created_at', { useTz: true }).defaultTo(db.fn.now())
+        t.timestamp('updated_at', { useTz: true }).defaultTo(db.fn.now())
+      })
+    }
+  })
+}
+
+//INSERT
+async function insert(db, search, offset) {
+  return db.raw(
+    `INSERT INTO searches(search, offset) VALUES($1, $2) RETURNING id, search, created_at`,
+    search, offset
+  )
+}
+
+//RETRIEVE
+async function retrieve(db, id) {
+  return db.raw(
+    `SELECT * FROM searches WHERE id = $1`,
+    id
+  )
+}
+
+//RETRIEVEALL
+async function retrieveAll(db) {
+  return db.rows(
+    `SELECT * FROM searches`
+  )
+}
+
+//UPDATE
+async function update(db, search, offset, id) {
+  return db.raw(
+    `UPDATE users SET search=$1, offset=$2, updated_at=NOW() WHERE id=$3 RETURNING id, name, address`,
+    search, offset, id
+  )
+}
+
+//DELETE
+
+module.exports = {schema, insert, retrieve, retrieveAll, update}
