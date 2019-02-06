@@ -56,9 +56,14 @@ router
     ctx.status = 200
     ctx.body = await imageSearch(search, offset).catch(console.error)
   })
+  .get('/api/search/:id', async ctx => {
+    const data = await retrieve(postgres(ctx), ctx.params.id)
+    ctx.status = 200
+    ctx.body = data  
+  })
   .get('/api/search/history', async ctx => {
     const data = await retrieveAll(postgres(ctx))
-    console.log(data)
+
     ctx.status = 200
     ctx.body = data
   })

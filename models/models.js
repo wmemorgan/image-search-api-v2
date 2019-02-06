@@ -36,10 +36,8 @@ async function insert(db, search, offset) {
 
 //RETRIEVE
 async function retrieve(db, id) {
-  return db.raw(
-    `SELECT * FROM searches WHERE id = $1`,
-    id
-  )
+  console.log(`Retrieve record number ${id}`)
+  return db('searches').where({id}).select()
 }
 
 //RETRIEVEALL
