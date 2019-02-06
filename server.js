@@ -4,6 +4,8 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const serve = require('koa-static')
 const fs = require('fs')
+// Google Search API
+const { imageSearch } = require('./controllers/searchAPI')
 
 const app = new Koa()
 const router = new Router()
@@ -14,38 +16,9 @@ const { postgresMiddleware, postgres } = require('./db')
 const { schema, insert, retrieve, retrieveAll, update, deleteId } = require('./models/models')
 app.use(postgresMiddleware(schema))
 
-// Google Search API
-const { google } = require('googleapis')
-const apikey = process.env.APIKEY
-const customsearch = google.customsearch('v1');
-
 // Host static site
 app.use(serve('./public'));
 app.use(serve('./img'));
-
-// Google Search API
-const imageSearch = async (search, offset) => {
-  const results = await customsearch.cse.list({
-    cx: '008245539995824095644:3f27vg6irlc',
-    q: search,
-    auth: apikey,
-    searchType: 'image',
-    start: offset,
-  })
-
-  const searchList = results.data.items
-  const displayItems = searchList.map(item => {
-    let itemDetails = {
-      url: item.link,
-      snippet: item.snippet,
-      thumbnail: item.image.thumbnailLink,
-      context: item.image.contextLink
-    }
-    return itemDetails
-  })
-  // console.log(displayItems)
-  return displayItems 
-}
 
 router
   .get('/', ctx => ctx.body = 'Welcome to Imagesearch API')
