@@ -8,11 +8,17 @@ function routes (router) {
   router
     .get('/', ctx => ctx.body = 'Welcome to Imagesearch API')
     .post('/api/search/:search*', async ctx => {
-      console.log(`receiving input query: ${JSON.stringify(ctx.query)}`)
-      const { search, offset } = ctx.query
-      await insert(postgres(ctx), search, offset)
-      ctx.status = 200
-      ctx.body = await imageSearch(search, offset).catch(console.error)
+      console.log(`receiving search query: ${JSON.stringify(ctx.request.body)}`)
+      const { search, offset } = ctx.request.body
+      if (search) {
+        await insert(postgres(ctx), search, offset)
+        ctx.status = 200
+        ctx.body = await imageSearch(search, offset).catch(console.error)
+      } else {
+        ctx.status = 400
+        ctx.body = `Bad input request`
+      }
+
     })
     .get('/api/search/history', async ctx => {
       console.log(ctx.request)
@@ -38,10 +44,8 @@ function routes (router) {
     .delete('/api/search/:id', async ctx => {
       const { id } = ctx.params
       console.log(`Delete search record: ${id}`)
-      const searchRecord = await deleteId(postgres(ctx), ctx.params.id)
-      if (searchRecord.length === 0) {
-        ctx.body = 'Delete successful!'
-      }
+      await deleteId(postgres(ctx), ctx.params.id)
+      ctx.body = 'Delete successful!'
     })
 }
 
