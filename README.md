@@ -1,4 +1,4 @@
-# Image Search API
+# Image Search API V2.0
 
 A REST API that processes image searches using the Google custom search engine
 
@@ -17,17 +17,17 @@ A REST API that processes image searches using the Google custom search engine
 ### Usage:
 #### Image Search
 **Endpoint:**  
-```/api/search/:search*```
+```/api/search/```
 
 **Method:**  
 ```POST```
 
-**Parameters:**  
-```search=SEARCHTERM```  
-```offset=ENTERNUMBER```
-
-**Example:**  
-```https://localhost/api/search/?search=avengers&offset=2```
+**Body**  
+```{
+   search: SEARCHTERM,
+   offset: ENTERNUMBER
+  }
+```
 
 ---
 ##### Search History:
