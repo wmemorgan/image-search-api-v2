@@ -24,99 +24,84 @@
   <div class="container" id="main">
     <!-- Home Page -->
     <section id="intro">
-      <div class="container">
-        <h1 id="headline">Image Search API V2.0</h1>
-        <div class="card-img">
-          <img src="./img/google-api.png" alt="">
-        </div>
-        <div class="section-doc">
-          <p>
-            A REST API that processes image searches using the Google custom search engine
-          </p>
-        </div>
-
+      <h1 id="headline">Image Search API V2.0</h1>
+      <div class="card-img">
+        <img src="./img/google-api.png" alt="">
+      </div>
+      <div class="section-doc">
+        <p>
+          A REST API that processes image searches using the Google custom search engine
+        </p>
       </div>
     </section>
 
     <!-- User Stories -->
     <section id="home">
-      <div class="container">
-        <h3 class="section-title">User Stories</h3>
-        <div class="section-doc">
-          <ol>
-            <li>
-              I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
-            </li>
-            <li>
-              I can paginate through the responses by adding a ?offset=2 parameter to the URL.
-            </li>
-            <li>
-              I can get a list of the most recently submitted search strings.
-            </li>
-          </ol>
-        </div>
+      <h3 class="section-title">User Stories</h3>
+      <div class="section-doc">
+        <ol>
+          <li>
+            I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
+          </li>
+          <li>
+            I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+          </li>
+          <li>
+            I can get a list of the most recently submitted search strings.
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- Image Search -->
     <section id="add-user">
-      <div class="container">
-        <h3 class="section-title">Image Search</h3>
-        <div class="section-text">
-          <h4>Endpoint:</h4>
-          <p><code>/api/search/:search*</code></p>
-          <br>
-          <h4>Method:</h4>
-          <p><code>POST</code></p>
-          <br>
-          <h4>Parameters:</h4>
-          <p>
-            <code>search=SEARCHTERM</code>
-          </p>
-          <p>
-            <code>offset=ENTERNUMBER</code>
-          </p>
-          <br>
-          <h4>Example:</h4>
-          <p>
-            <code>
-                https://localhost/api/search/?search=avengers&offset=2
-            </code>
-          </p>
-          <br>
-          <p>You can demo the API using the form below</p>
-          <br>
-        </div>
-        <form action="api/search/:search">
-          <input id="search" type="text" name="search" placeholder="search images" required>
-          <input id="offset" type="number" name="offset" placeholder="offset" required>
-          <input type="submit" value="Search" class="search-btn">
-        </form>
+      <h3 class="section-title">Image Search</h3>
+      <div class="section-text">
+        <h4>Endpoint:</h4>
+        <p><code>/api/search/</code></p>
+        <br>
+        <h4>Method:</h4>
+        <p><code>POST</code></p>
+        <br>
+        <h4>Body</h4>
+        <p>
+          <code>
+            {
+              search: SEARCHTERM,
+              offset: ENTERNUMBER
+            }
+          </code>
+        </p>
+        <p>You can demo the API using the form below</p>
+        <br>
       </div>
+      <form action="/api/search/" method="POST">
+        <input id="search" type="text" name="search" placeholder="search images" required>
+        <input id="offset" type="number" name="offset" placeholder="offset" required>
+        <input type="submit" class="search-btn">
+      </form>
     </section>
 
     <!-- Search History -->
     <section id="users">
-      <div class="container">
-        <h3 class="section-title">Search History</h3>
-        <div class="section-text">
-          <h4>Endpoint:</h4>
-          <p>
-            <code>/api/search/history</code>
-          </p>
-          <br>
-          <h4>Method:</h4>
-          <p>
-            <code>GET</code>
-          </p>
-          <br>
-          <p>You can test the API using the form below</p>
-          <br>
-        </div>
-        <form action="api/search/history" action="get">
-          <input type="submit" value="Search History" class="search-btn">
-        </form>
+      <h3 class="section-title">Search History</h3>
+      <div class="section-text">
+        <h4>Endpoint:</h4>
+        <p>
+          <code>/api/search/history</code>
+        </p>
+        <br>
+        <h4>Method:</h4>
+        <p>
+          <code>GET</code>
+        </p>
+        <br>
+        <p>You can test the API using the form below</p>
+        <br>
       </div>
+      <form action="/api/search/history" action="get">
+        <input type="submit" value="Search History" class="search-btn">
+      </form>
     </section>
 
   </div>
