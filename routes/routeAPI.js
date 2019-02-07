@@ -18,7 +18,6 @@ function routes (router) {
         ctx.status = 400
         ctx.body = `Bad input request`
       }
-
     })
     .get('/api/search/history', async ctx => {
       console.log(ctx.request)
