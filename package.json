@@ -15,6 +15,7 @@
     "googleapis": "^37.1.0",
     "knex": "^0.16.3",
     "koa": "^2.7.0",
+    "koa-body": "^4.0.7",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "once": "^1.4.0",

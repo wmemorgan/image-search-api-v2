@@ -1,26 +1,30 @@
 require('dotenv').load()
 const fs = require('fs')
 const Koa = require('koa')
+var bodyParser = require('koa-body')
 const Router = require('koa-router')
 const serve = require('koa-static')
-
-const app = new Koa()
-const router = new Router()
-
-const port = process.env.PORT
 
 // Database Connection
 const { postgresMiddleware } = require('./db')
 const { schema } = require('./models/models')
-app.use(postgresMiddleware(schema))
 
-// Host static site
-app.use(serve('./public'));
-app.use(serve('./public/img'));
-app.use(serve('./public/css'));
-app.use(serve('./public/js'));
+// Instantiate server and activate middleware
+const app = new Koa()
+  .use(bodyParser({
+    formidable: { uploadDir: './uploads' },
+    multipart: true,
+    urlencoded: true
+  }))
+  .use(postgresMiddleware(schema))
+  // Host static site
+  .use(serve('./public'))
+  .use(serve('./public/img'))
+  .use(serve('./public/css'))
+const port = process.env.PORT
 
 // Route Setup
+const router = new Router()
 const routeAPI = require('./routes/routeAPI').routes
 for (const routes of [ routeAPI ]) {
   routes(router)
