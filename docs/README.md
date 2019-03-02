@@ -1,5 +1,7 @@
 # Image Search API V2.0
 
+<img src="./img/google-api.png" alt="Google Logo">
+
 A REST API that processes image searches using the Google custom search engine
 
 ---
