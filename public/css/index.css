@@ -198,7 +198,6 @@ section {
 }
 
 section .container {
-  max-width: 850px;
   background: var(--container-bg-color);
   margin: 0 auto;
   /* padding: 2rem 0; */
@@ -208,12 +207,11 @@ section h3 {
   /* position: relative; */
   font-size: 1.25rem;
   font-weight: 600;
-  text-transform: uppercase;
-  max-width: 850px;
   color: var(--dark-primary-color);
-  margin: 0 auto;
+  margin: 20px auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  border-top: 1px solid var(--primary-text-color);
 }
 
 section h4 {
@@ -223,7 +221,6 @@ section h4 {
 
 .section-doc {
   color: var(--primary-text-color);
-  max-width: 850px;
   margin: 0 auto;
   /* padding: 0 10%; */
 }
@@ -234,7 +231,6 @@ section li {
 
 .section-text {
   color: var(--primary-text-color);
-  max-width: 850px;
   margin: 0 auto;
 }
 
@@ -321,7 +317,7 @@ footer #copyright-info {
 		padding-top: 15.25%;
 	}
 
-	#headline {
+	section h1 {
     font-size: 4.5vh;
 	}
 	
@@ -346,7 +342,7 @@ footer #copyright-info {
     text-align: center;
   }
 
-  #headline {
+  section h1 {
     font-size: 4vh;
   }
 
