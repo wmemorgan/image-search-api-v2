@@ -217,6 +217,11 @@ section h3 {
   padding-bottom: 1rem;
 }
 
+section h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .section-doc {
   color: var(--primary-text-color);
   max-width: 850px;
@@ -224,7 +229,7 @@ section h3 {
   /* padding: 0 10%; */
 }
 
-.section-doc li {
+section li {
   margin: 1rem 10%;
 }
 
@@ -350,8 +355,8 @@ footer #copyright-info {
   .section-text {
     padding: 0 5vw;
 	}
-	
-	.section-text code {
+  
+  section p code {
 		font-size: 0.9rem;
 	}
 
