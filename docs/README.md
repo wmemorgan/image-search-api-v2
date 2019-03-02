@@ -25,7 +25,8 @@ A REST API that processes image searches using the Google custom search engine
 ```POST```
 
 **Body**  
-```{
+```
+  {
    search: SEARCHTERM,
    offset: ENTERNUMBER
   }
@@ -35,7 +36,7 @@ A REST API that processes image searches using the Google custom search engine
 [Image Search Demo](https://wme-image-search-api.herokuapp.com/#search-image)
 
 ---
-##### Search History:
+#### Search History:
 **Endpoint:**  
 ```/api/search/history```
 
@@ -46,7 +47,7 @@ A REST API that processes image searches using the Google custom search engine
 [Search History Demo](https://wme-image-search-api.herokuapp.com/#search-history)
 
 ---
-##### Search Individual Record:
+#### Search Individual Record:
 **Endpoint:**  
 ```/api/search/:id```
 
