@@ -1,6 +1,8 @@
 # Image Search API V2.0
 
-<img src="./img/google-api.png" alt="Google Logo">
+<div class="card-image">
+  <img src="./img/google-api.png" alt="Google Logo">
+</div>
 
 A REST API that processes image searches using the Google custom search engine
 

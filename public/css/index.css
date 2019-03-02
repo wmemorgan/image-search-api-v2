@@ -185,7 +185,7 @@ code {
   height: auto;
 }
 
-#content img {
+.card-img img {
   width: 200px;
   object-fit: contain;
 }
