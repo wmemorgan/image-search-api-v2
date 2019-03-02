@@ -41,6 +41,7 @@
 
 body  {
   font-family: Lato, Helvetica, Sans-Serif;
+  background: var(--light-primary-color);
 }
 
 .container {
@@ -48,10 +49,9 @@ body  {
   width: 90%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   margin: 0 auto;
   padding: 20px;
-  background: var(--light-primary-color);
+  background: var(--container-bg-color);
 }
 
 .banner {
