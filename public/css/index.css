@@ -43,20 +43,19 @@ body  {
   font-family: Lato, Helvetica, Sans-Serif;
 }
 
-
-
 .container {
   max-width: 800px;
   width: 90%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--light-primary-color);
 }
 
 .banner {
   width: 100%;
-  /* margin: 20px auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +97,7 @@ form {
   background: var(--overlay-bg-color);
   display: block;
   width: 100%;
-  max-width: 25rem;
+  max-width: 600px;
 	border-radius: 5px;
 }
 
@@ -160,12 +159,6 @@ code {
   text-align: left;
 }
 
-/* #main {
-	margin: 0 auto;
-	width: 90%;
-	border: 3px solid green;
-} */
-
 #content {
 	padding-top: 10.25%;
 }
@@ -191,20 +184,9 @@ code {
 }
 
 /*-----section----*/
-section {
-	margin: 0 auto;
-	border-bottom: 1px solid var(--default-primary-color);
-	padding: 1.25% 0;
-}
-
-section .container {
-  background: var(--container-bg-color);
-  margin: 0 auto;
-  /* padding: 2rem 0; */
-}
-
 section h3 {
-  margin-top: 10px;
+  margin-top: 50px;
+  padding-top: 10px;
   border-top: 1px solid var(--primary-text-color);
   font-size: 1.25rem;
   font-weight: 600;
@@ -311,7 +293,7 @@ footer #copyright-info {
 
 /*------Responsive design------*/
 @media only screen and (max-width: 768px) {
-	#intro {
+	#content {
 		padding-top: 15.25%;
 	}
 
@@ -319,12 +301,12 @@ footer #copyright-info {
     font-size: 4.5vh;
 	}
 	
-  section .container {
-    padding: 0.25rem;
-  }
 }
 
 @media only screen and (max-width: 568px) {
+  .container {
+    padding: 20px 5px;
+  }
 
   /*----home----*/
   .brand a {
