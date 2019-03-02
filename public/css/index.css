@@ -204,14 +204,11 @@ section .container {
 }
 
 section h3 {
-  /* position: relative; */
+  margin-top: 10px;
+  border-top: 1px solid var(--primary-text-color);
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--dark-primary-color);
-  margin: 20px auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-top: 1px solid var(--primary-text-color);
 }
 
 section h4 {
@@ -237,7 +234,6 @@ section li {
 }
 
 code {
-  /* display: block; */
   margin: 0 auto;
   width: 100%;
 }
@@ -294,7 +290,6 @@ footer .social-cta {
 
 footer .social-media-icons {
   font-size: 1rem;
-  /* padding: 0.5rem; */
   letter-spacing: 0.25rem;
 }
 
@@ -336,10 +331,6 @@ footer #copyright-info {
     font-size: 1rem;
   }
 
-  /* #intro {
-    padding-top: 25.25%;
-  } */
-
     /*----navigation----*/
   .brand {
     text-align: center;
@@ -360,7 +351,6 @@ footer #copyright-info {
 
   /*---footer----*/
   footer {
-    /* margin-top: 0; */
     font-size: 0.75rem;
   }
 
