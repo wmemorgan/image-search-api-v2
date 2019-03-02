@@ -219,6 +219,10 @@ section h4 {
   font-weight: bold;
 }
 
+section p {
+  margin: 10px 0;
+}
+
 .section-doc {
   color: var(--primary-text-color);
   /* padding: 0 10%; */
