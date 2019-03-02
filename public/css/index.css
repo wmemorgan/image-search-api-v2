@@ -166,11 +166,11 @@ code {
 	border: 3px solid green;
 } */
 
-#intro {
+#content {
 	padding-top: 10.25%;
 }
 
-#headline {
+#content h1 {
 	text-align: center;
 	font-size: 5vh;
 	padding-bottom: 1rem;
@@ -185,7 +185,7 @@ code {
   height: auto;
 }
 
-.card-img img {
+#content img {
   width: 200px;
   object-fit: contain;
 }
@@ -198,12 +198,13 @@ section {
 }
 
 section .container {
+  max-width: 850px;
   background: var(--container-bg-color);
   margin: 0 auto;
   /* padding: 2rem 0; */
 }
 
-.section-title {
+section h3 {
   /* position: relative; */
   font-size: 1.25rem;
   font-weight: 600;
