@@ -21,7 +21,7 @@ const app = new Koa()
   .use(serve('./public'))
   .use(serve('./public/img'))
   .use(serve('./public/css'))
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 // Route Setup
 const router = new Router()
