@@ -221,7 +221,6 @@ section h4 {
 
 .section-doc {
   color: var(--primary-text-color);
-  margin: 0 auto;
   /* padding: 0 10%; */
 }
 
@@ -231,7 +230,6 @@ section li {
 
 .section-text {
   color: var(--primary-text-color);
-  margin: 0 auto;
 }
 
 code {
@@ -299,6 +297,7 @@ footer .social-media-icons {
 footer .social-media-group {
   text-transform: uppercase;
 }
+
 footer #copyright-info {
   font-size: 0.85rem;
 }
@@ -347,12 +346,12 @@ footer #copyright-info {
   }
 
   /*----section----*/
-  .section-text {
+  section {
     padding: 0 5vw;
 	}
   
   section p code {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 	}
 
   /*---footer----*/
