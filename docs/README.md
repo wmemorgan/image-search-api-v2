@@ -1,7 +1,7 @@
 # Image Search API V2.0
 
 <div class="card-img">
-  <img src="https://wme-image-search-api.herokuapp.com/img/google-api.png" alt="Google Logo">
+  <img src="https://wme-image-search-api.herokuapp.com/img/google-api.png" width=200 alt="Google Logo">
 </div>
 
 A REST API that processes image searches using the Google custom search engine
@@ -18,8 +18,7 @@ A REST API that processes image searches using the Google custom search engine
   3. I can get a list of the most recently submitted search strings.
 
 ---
-### Usage:
-#### Image Search
+### Image Search
 **Endpoint:**  
 ```/api/search/```
 
@@ -38,7 +37,7 @@ A REST API that processes image searches using the Google custom search engine
 [Image Search Demo](https://wme-image-search-api.herokuapp.com/#search-image)
 
 ---
-#### Search History:
+### Search History:
 **Endpoint:**  
 ```/api/search/history```
 
@@ -49,7 +48,7 @@ A REST API that processes image searches using the Google custom search engine
 [Search History Demo](https://wme-image-search-api.herokuapp.com/#search-history)
 
 ---
-#### Search Individual Record:
+### Search Individual Record:
 **Endpoint:**  
 ```/api/search/:id```
 
@@ -63,7 +62,7 @@ A REST API that processes image searches using the Google custom search engine
 ```https://wme-image-search-api.herokuapp.com/api/search/3```
 
 ---
-##### Update Individual Record:
+### Update Individual Record:
 **Endpoint:**  
 ```/api/search/:id```
 
@@ -79,7 +78,7 @@ A REST API that processes image searches using the Google custom search engine
 ```https://wme-image-search-api.herokuapp.com/api/search/2/?search=batman&offset=6```
 
 ---
-##### Delete Individual Record:
+### Delete Individual Record:
 **Endpoint:**  
 ```/api/search/:id```
 

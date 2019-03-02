@@ -208,7 +208,6 @@ section h3 {
   /* position: relative; */
   font-size: 1.25rem;
   font-weight: 600;
-  text-align: center;
   text-transform: uppercase;
   max-width: 850px;
   color: var(--dark-primary-color);
