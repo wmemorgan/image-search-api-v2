@@ -1,6 +1,6 @@
 # Image Search API V2.0
 
-<div class="card-img">
+<div class="card-img" align="center">
   <img src="https://wme-image-search-api.herokuapp.com/img/google-api.png" width=200 alt="Google Logo">
 </div>
 
