@@ -27,10 +27,10 @@ A REST API that processes image searches using the Google custom search engine
 
 **Body**  
 ```
-  {
-   search: SEARCHTERM,
-   offset: ENTERNUMBER
-  }
+{ 
+  search: SEARCHTERM,
+  offset: ENTERNUMBER 
+}
 ```
 
 **Example:**
