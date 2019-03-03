@@ -89,7 +89,5 @@ A REST API that processes image searches using the Google custom search engine
 ```id=RECORDNUMBER```  
 
 **Example:**  
-```
-https://wme-image-search-api.herokuapp.com/api/search/3
-```
+```https://wme-image-search-api.herokuapp.com/api/search/3```
 
