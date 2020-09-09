@@ -13,7 +13,7 @@
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "dotenv": "^6.2.0",
-    "googleapis": "^37.1.0",
+    "googleapis": "^39.1.0",
     "knex": "^0.16.3",
     "koa": "^2.7.0",
     "koa-body": "^4.0.7",

@@ -1059,10 +1059,10 @@ googleapis-common@^0.7.0:
     url-template "^2.0.8"
     uuid "^3.2.1"
 
-googleapis@^37.1.0:
-  version "37.1.0"
-  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-37.1.0.tgz#34a663179ea5a1b290b7af1ea1a1ae9a9eabfcb0"
-  integrity sha512-ajQF/BA95pCknQWtNFelcSuwZpiUKyKlfbEFd/q3gWMWJWlkMd4Bb+oI6+A0lQ0spqQF/zzMyviTiLCaws5hkw==
+googleapis@^39.1.0:
+  version "39.1.0"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-39.1.0.tgz#7a89092e9cc64b25dde4503db606032e3514444d"
+  integrity sha512-MRO9rW7izUIBZ4NJ67FNhBUw/Q3ki7hk149E9MhphJnLw1CStUAnm9nFD/IpNnx97qx2WBa7dLPjeXrJky6xlw==
   dependencies:
     google-auth-library "^3.0.0"
     googleapis-common "^0.7.0"
