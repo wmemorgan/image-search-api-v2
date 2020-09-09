@@ -1,6 +1,7 @@
 require('dotenv').load()
 const fs = require('fs')
 const Koa = require('koa')
+const cors = require('@koa/cors')
 var bodyParser = require('koa-body')
 const Router = require('koa-router')
 const serve = require('koa-static')
@@ -11,6 +12,7 @@ const { schema } = require('./models/models')
 
 // Instantiate server and activate middleware
 const app = new Koa()
+  .use(cors())
   .use(bodyParser({
     formidable: { uploadDir: './uploads' },
     multipart: true,
