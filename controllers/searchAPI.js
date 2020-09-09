@@ -17,7 +17,8 @@ const imageSearch = async (search, offset) => {
 	const displayItems = searchList.map((item) => {
     let itemDetails = {
       id: uuidv4(),
-			url: item.link,
+      url: item.link,
+      original: item.link,
 			snippet: item.snippet,
 			thumbnail: item.image.thumbnailLink,
 			context: item.image.contextLink,
