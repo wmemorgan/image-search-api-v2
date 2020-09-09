@@ -11,6 +11,7 @@
   "author": "Wilfred Morgan <wil.me.morgan@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "dotenv": "^6.2.0",
     "googleapis": "^37.1.0",
     "knex": "^0.16.3",
